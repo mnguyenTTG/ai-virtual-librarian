@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ai-virtual-librarian
+    env: node
+    plan: free
+    buildCommand: npm install && npx prisma generate
+    startCommand: npm run dev
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: OPENAI_API_KEY
+        sync: false  # you’ll set this manually in Render UI
